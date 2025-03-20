@@ -3,6 +3,7 @@ import { ShoppingCart, User, Menu, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useAuth } from '../contexts/AuthContext';
 import AuthModal from './AuthModal';
+import { Pi } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,7 +33,7 @@ const Navbar = () => {
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center">
               <div className="flex-shrink-0 flex items-center">
-                <img src="https://ibb.co/fdxFpbwz" alt="PiCraft Logo" className="h-8 w-8" />
+                <Pi className="text-blue-500 h-8 w-8" />
                 <span className="ml-2 text-2xl font-bold text-blue-500">PiCraft</span>
               </div>
             </div>

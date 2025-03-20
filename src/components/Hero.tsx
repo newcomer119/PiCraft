@@ -50,8 +50,8 @@ const Hero = () => {
           </button>
         </div>
 
-        {/* Floating Elements */}
-        <div className="absolute top-1/4 left-10 w-32 h-32 bg-cyan-500/5 rounded-xl backdrop-blur-lg transform rotate-12 animate-float"></div>
+        {/* Floating Elements - Adjusted positions and sizes */}
+        <div className="absolute top-1/3 -left-4 w-24 h-24 bg-cyan-500/5 rounded-xl backdrop-blur-lg transform rotate-12 animate-float"></div>
         <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-cyan-500/5 rounded-xl backdrop-blur-lg transform -rotate-12 animate-float-delayed"></div>
       </div>
     </div>

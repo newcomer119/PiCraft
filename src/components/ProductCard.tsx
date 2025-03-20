@@ -8,18 +8,24 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transition-transform hover:scale-105">
+    <div className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transition-all hover:scale-105 border border-gray-700 hover:border-blue-500">
       <img
         src={product.image}
         alt={product.name}
-        className="w-full h-48 object-cover"
+        className="w-full h-48 object-cover hover:opacity-90 transition-opacity"
       />
       <div className="p-4">
-        <h3 className="text-lg font-semibold text-gray-900">{product.name}</h3>
-        <p className="mt-1 text-gray-600 text-sm line-clamp-2">{product.description}</p>
+        <h3 className="text-lg font-semibold text-white">
+          {product.name}
+        </h3>
+        <p className="mt-1 text-gray-400 text-sm line-clamp-2">
+          {product.description}
+        </p>
         <div className="mt-4 flex items-center justify-between">
-          <span className="text-xl font-bold text-blue-600">₹{product.price.toLocaleString()}</span>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-md flex items-center space-x-2 hover:bg-blue-700 transition-colors">
+          <span className="text-xl font-bold text-blue-500">
+            ₹{product.price.toLocaleString()}
+          </span>
+          <button className="bg-blue-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-blue-700 transition-all hover:scale-105">
             <ShoppingCart className="h-5 w-5" />
             <span>Add to Cart</span>
           </button>

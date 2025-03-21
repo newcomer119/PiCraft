@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ProductCard from './components/ProductCard';
@@ -9,13 +9,7 @@ import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import { AuthProvider } from './contexts/AuthContext';
-import { useAuth } from './contexts/AuthContext';
 import FaqContact from './components/FaqContact';
-
-const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { currentUser } = useAuth();
-  return currentUser ? <>{children}</> : <Navigate to="/login" />;
-};
 
 const products = [
   {
@@ -44,38 +38,36 @@ const products = [
   },
 ];
 
-function App() {
+const App = () => {
   return (
     <Router>
       <AuthProvider>
-        <div className="min-h-screen bg-gray-900">
-          <Navbar />
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/" element={
-              <>
-                <Hero />
-                <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <section className="py-24">
-                    <h2 className="text-3xl font-bold text-white mb-12 text-center">Featured Products</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-                      {products.map((product) => (
-                        <ProductCard key={product.id} product={product} />
-                      ))}
-                    </div>
-                  </section>
-                  <Benefits />
-                  <FaqContact/>
-                </main>
-                <Footer />
-              </>
-            } />
-          </Routes>
-        </div>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/" element={
+            <>
+              <Navbar />
+              <Hero />
+              <Benefits />
+              <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <section className="py-24">
+                  <h2 className="text-3xl font-bold text-white mb-12 text-center">Featured Products</h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                    {products.map((product) => (
+                      <ProductCard key={product.id} product={product} />
+                    ))}
+                  </div>
+                </section>
+                <FaqContact/>
+              </main>
+              <Footer />
+            </>
+          } />
+        </Routes>
       </AuthProvider>
     </Router>
   );
-}
+};
 
 export default App;

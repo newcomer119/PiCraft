@@ -13,6 +13,7 @@ import AboutUs from './pages/AboutUs';
 import PrintingService from './pages/PrintingService';
 import { AuthProvider } from './contexts/AuthContext';
 import FaqContact from './components/FaqContact';
+import Partners from './components/Partners';
 
 const products = [
   {
@@ -56,6 +57,7 @@ const App = () => {
               <Navbar />
               <Hero />
               <Benefits />
+              <Partners />
               <main className="bg-gray-900">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                   <section className="py-24">

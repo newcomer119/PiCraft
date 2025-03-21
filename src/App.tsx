@@ -8,6 +8,9 @@ import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import AllProducts from './pages/AllProducts';
+import AboutUs from './pages/AboutUs';
+import PrintingService from './pages/PrintingService';
 import { AuthProvider } from './contexts/AuthContext';
 import FaqContact from './components/FaqContact';
 
@@ -45,6 +48,9 @@ const App = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/products" element={<><Navbar /><AllProducts /><Footer /></>} />
+          <Route path="/about" element={<><Navbar /><AboutUs /><Footer /></>} />
+          <Route path="/printing-service" element={<><Navbar /><PrintingService /><Footer /></>} />
           <Route path="/" element={
             <>
               <Navbar />

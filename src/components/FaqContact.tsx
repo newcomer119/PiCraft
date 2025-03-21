@@ -61,7 +61,7 @@ const FaqContact = () => {
   };
 
   return (
-    <section className="py-16 bg-gradient-to-b from-gray-900 to-gray-800">
+    <section className="py-16 bg-gray-900">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto space-y-16">
           {/* FAQ Section */}
@@ -77,20 +77,20 @@ const FaqContact = () => {
           <Accordion
             type="single"
             collapsible
-            className="mx-auto w-full"
+            className="mx-auto w-full space-y-4"
           >
             {faqItems.map((item) => (
               <AccordionItem 
                 key={item.id} 
                 value={item.id}
-                className="border-b border-gray-700"
+                className="border-b border-gray-700 bg-gray-800 rounded-lg"
               >
-                <AccordionTrigger className="text-white hover:no-underline hover:opacity-80">
+                <AccordionTrigger className="text-white hover:no-underline hover:text-blue-500 px-4">
                   <div className="font-medium sm:py-1 lg:py-2 lg:text-lg text-left">
                     {item.question}
                   </div>
                 </AccordionTrigger>
-                <AccordionContent className="text-gray-400">
+                <AccordionContent className="text-gray-400 px-4">
                   <div className="lg:text-lg">
                     {item.answer}
                   </div>

@@ -20,7 +20,8 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'All Products', path: '/products' },
     { name: 'About Us', path: '/about' },
-    { name: '3D Printing', path: '/printing-service' }
+    { name: '3D Printing', path: '/printing-service' },
+    { name: 'Contact', path: '#contact' }
   ];
 
   const handleAuthClick = () => {
@@ -28,6 +29,17 @@ const Navbar = () => {
       logout();
     } else {
       navigate('/login');
+    }
+  };
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (path.startsWith('#')) {
+      e.preventDefault();
+      const element = document.getElementById(path.substring(1));
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false); // Close mobile menu if open
+      }
     }
   };
 
@@ -53,6 +65,7 @@ const Navbar = () => {
                   key={item.name}
                   setPosition={setPosition}
                   href={item.path}
+                  onClick={(e) => handleNavClick(e, item.path)}
                 >
                   {item.name}
                 </Tab>
@@ -154,6 +167,7 @@ const Navbar = () => {
               <a
                 key={item.name}
                 href={item.path}
+                onClick={(e) => handleNavClick(e, item.path)}
                 className="text-gray-300 hover:text-blue-500 block px-3 py-2 rounded-md text-base font-medium transition-colors"
               >
                 {item.name}
@@ -187,10 +201,12 @@ const Tab = ({
   children,
   setPosition,
   href,
+  onClick,
 }: {
   children: React.ReactNode;
   setPosition: any;
   href: string;
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
 }) => {
   const ref = useRef<HTMLLIElement>(null);
   return (
@@ -208,6 +224,7 @@ const Tab = ({
     >
       <Link
         to={href}
+        onClick={onClick}
         className="relative z-10 block cursor-pointer px-3 py-1.5 text-xs uppercase text-gray-300 hover:text-blue-500 transition-colors md:px-5 md:py-3 md:text-base"
       >
         {children}

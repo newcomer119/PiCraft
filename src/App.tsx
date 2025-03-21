@@ -14,6 +14,7 @@ import PrintingService from './pages/PrintingService';
 import { AuthProvider } from './contexts/AuthContext';
 import FaqContact from './components/FaqContact';
 import Partners from './components/Partners';
+import ChatWidget from './components/ChatWidget';
 
 const products = [
   {
@@ -71,6 +72,7 @@ const App = () => {
                   <FaqContact/>
                 </div>
               </main>
+              <ChatWidget />
               <Footer />
             </>
           } />
